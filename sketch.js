@@ -1,9 +1,10 @@
-var diam,strokeW,hrCol,mnCol,scCol,bgCol;
-var changeButton;
-var hands;
-var hr,mn,sc;
+'use strict';
 
-var clocks = {
+let diam,strokeW,hrCol,mnCol,scCol,bgCol;
+let hands;
+let hr,mn,sc;
+
+let clocks = {
 	"chorded": {
 		"active": false
 		,"draw": function () {
@@ -156,7 +157,7 @@ function mouseReleased() {
 	if (mouseButton === "left") {
 		let setActive;
 
-		for (clock in clocks) {
+		for (let clock in clocks) {
 			if (setActive) {
 				clocks[clock].active = true;
 				setActive = false;
@@ -188,7 +189,7 @@ function draw() {
 	mn = minute() + (sc/60);
 	hr = hour() + (mn/60); 
 
-	for (clock in clocks) {
+	for (let clock in clocks) {
 		if (clocks[clock].active) {
 			clocks[clock].draw();
 		}
